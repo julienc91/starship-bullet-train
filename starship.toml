@@ -1,0 +1,121 @@
+add_newline = true
+format = """
+$time\
+$status\
+$username\
+$directory\
+$perl\
+$ruby\
+$python\
+$golang\
+$rust\
+$php\
+$nodejs\
+$aws\
+$git_branch$git_state$git_status\
+$cmd_duration\
+[](bg:none fg:prev_bg)\
+\n$character"""
+
+[time]
+disabled = false
+time_format = "%T"
+style="bg:white fg:black"
+format = '[ $time ]($style)'
+
+[status]
+disabled = false
+symbol = "✘"
+style = "bg:red fg:white"
+format = '[]($style fg:prev_bg)[ $symbol ]($style)'
+
+[username]
+disabled = false
+show_always = false
+style_root = "bg:green"
+style_user = "bg:green"
+aliases = {"root" = "⚡"}
+format = "[]($style fg:prev_bg)[ $user ]($style)"
+
+[directory]
+disabled = false
+style = "bg:blue fg:white"
+read_only_style = "bg:blue fg:white"
+truncation_length = 3
+truncation_symbol = "…/"
+format = "[]($style fg:prev_bg)[ $path([ $read_only]($read_only_style)) ]($style)"
+
+[perl]
+disabled = false
+symbol = "🐪"
+style = "bg:yellow fg:black"
+format = "[]($style fg:prev_bg)[ $symbol ($version )]($style)"
+
+[ruby]
+disabled = false
+symbol = "♦️"
+style = "bg:red fg:white"
+format = "[]($style fg:prev_bg)[ $symbol ($version )]($style)"
+
+[python]
+disabled = false
+symbol = "🐍"
+style = "bg:yellow fg:white"
+format = '[]($style fg:prev_bg)[ $symbol $pyenv_prefix($version )(\($virtualenv\) )]($style)'
+
+[golang]
+disabled = false
+symbol = "🐹"
+style = "bg:cyan fg:white"
+format = "[]($style fg:prev_bg)[ $symbol ($version )]($style)"
+
+[rust]
+disabled = false
+symbol = "🦀"
+style = "bg:black fg:white"
+format = "[]($style fg:prev_bg)[ $symbol ($version )]($style)"
+
+[php]
+disabled = false
+symbol = "🐘"
+style = "bg:yellow fg:black"
+format = "[]($style fg:prev_bg)[ $symbol ($version )]($style)"
+
+[nodejs]
+disabled = false
+symbol = ""
+style = "bg:green fg:white"
+format = "[]($style fg:prev_bg)[ $symbol ($version )]($style)"
+
+[aws]
+disabled = false
+symbol = "☁️"
+style = "bg:yellow fg:black"
+format = '[]($style fg:prev_bg)[ $symbol ($profile )(\($region\) )]($style)'
+
+[git_branch]
+disabled = false
+style = "bg:white fg:black"
+symbol = ""
+format = '[]($style fg:prev_bg)[ $symbol $branch ]($style)'
+
+[git_state]
+disabled = false
+style = "bg:white fg:black"
+
+[git_status]
+disabled = false
+style = "bg:white fg:black"
+conflicted = '🚩'
+stashed = '📦'
+modified = '📝'
+deleted = '🗑️'
+untracked = '❓'
+up_to_date = '✔'
+format = '[$all_status$ahead_behind ]($style)'
+
+[cmd_duration]
+disabled = false
+min_time = 5000
+style = "bg:yellow fg:black"
+format = '[]($style fg:prev_bg)[ $duration ]($style)'
